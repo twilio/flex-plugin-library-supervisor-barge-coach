@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="1" failures="0" errors="0" time="3.474">
+  <testsuite name="SupervisorBargeCoachButtons component" errors="0" failures="0" skipped="0" timestamp="2023-02-08T06:33:58" time="2.429" tests="1">
+    <testcase classname="SupervisorBargeCoachButtons component renders correctly" name="SupervisorBargeCoachButtons component renders correctly" time="0.025">
+    </testcase>
+  </testsuite>
+</testsuites>
