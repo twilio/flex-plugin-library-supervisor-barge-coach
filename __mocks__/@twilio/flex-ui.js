@@ -201,6 +201,9 @@ module.exports = {
     canHold: () => {
       return true;
     },
+    isLiveCall:()=>{
+      return true;
+    }
   },
   ChatOrchestrator:{
     orchestrateCompleteTask:jest.fn()
