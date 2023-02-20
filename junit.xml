@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="55" failures="3" errors="0" time="52.233">
+  <testsuite name="utils/common/ApiService" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:21" time="2.585" tests="4">
+    <testcase classname="utils/common/ApiService should provide access to the Flex Manager instance" name="utils/common/ApiService should provide access to the Flex Manager instance" time="0.001">
+    </testcase>
+    <testcase classname="utils/common/ApiService should build encoded params into a string to use as the body for serverless reqeusts" name="utils/common/ApiService should build encoded params into a string to use as the body for serverless reqeusts" time="0">
+    </testcase>
+    <testcase classname="utils/common/ApiService fetchJsonWithReject should return json response" name="utils/common/ApiService fetchJsonWithReject should return json response" time="0.004">
+    </testcase>
+    <testcase classname="utils/common/ApiService fetchJsonWithReject should throw error" name="utils/common/ApiService fetchJsonWithReject should throw error" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Conference Participant" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:21" time="3.028" tests="17">
+    <testcase classname="Conference Participant coachToggle should throw error due to invalid context " name="Conference Participant coachToggle should throw error due to invalid context " time="0.02">
+    </testcase>
+    <testcase classname="Conference Participant coachToggle should throw error due to invalid conferenceSid " name="Conference Participant coachToggle should throw error due to invalid conferenceSid " time="0">
+    </testcase>
+    <testcase classname="Conference Participant coachToggle should throw error due to invalid participantSid " name="Conference Participant coachToggle should throw error due to invalid participantSid " time="0">
+    </testcase>
+    <testcase classname="Conference Participant coachToggle should throw error due to invalid agentSid " name="Conference Participant coachToggle should throw error due to invalid agentSid " time="0">
+    </testcase>
+    <testcase classname="Conference Participant coachToggle should throw error due to invalid muted " name="Conference Participant coachToggle should throw error due to invalid muted " time="0.001">
+    </testcase>
+    <testcase classname="Conference Participant coachToggle should throw error due to invalid coaching " name="Conference Participant coachToggle should throw error due to invalid coaching " time="0">
+    </testcase>
+    <testcase classname="Conference Participant coachToggle should throw error due to invalid attempts " name="Conference Participant coachToggle should throw error due to invalid attempts " time="0">
+    </testcase>
+    <testcase classname="Conference Participant updateParticipant should be called successfully " name="Conference Participant updateParticipant should be called successfully " time="0.001">
+    </testcase>
+    <testcase classname="Conference Participant bargeToggle should throw error due to invalid attempts " name="Conference Participant bargeToggle should throw error due to invalid attempts " time="0">
+    </testcase>
+    <testcase classname="Conference Participant bargeToggle should throw error due to invalid muted " name="Conference Participant bargeToggle should throw error due to invalid muted " time="0">
+    </testcase>
+    <testcase classname="Conference Participant bargeToggle should throw error due to invalid participantSid " name="Conference Participant bargeToggle should throw error due to invalid participantSid " time="0.001">
+    </testcase>
+    <testcase classname="Conference Participant bargeToggle should throw error due to invalid conferenceSid " name="Conference Participant bargeToggle should throw error due to invalid conferenceSid " time="0">
+    </testcase>
+    <testcase classname="Conference Participant bargeToggle should throw error due to invalid context " name="Conference Participant bargeToggle should throw error due to invalid context " time="0">
+    </testcase>
+    <testcase classname="Conference Participant updateParticipant should throw error due to invalid endConferenceOnExit " name="Conference Participant updateParticipant should throw error due to invalid endConferenceOnExit " time="0">
+    </testcase>
+    <testcase classname="Conference Participant updateParticipant should throw error due to invalid participant " name="Conference Participant updateParticipant should throw error due to invalid participant " time="0">
+    </testcase>
+    <testcase classname="Conference Participant updateParticipant should throw error due to invalid conference " name="Conference Participant updateParticipant should throw error due to invalid conference " time="0">
+    </testcase>
+    <testcase classname="Conference Participant updateParticipant should throw error due to invalid context " name="Conference Participant updateParticipant should throw error due to invalid context " time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Prepare Flex Function" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:21" time="3.04" tests="4">
+    <testcase classname="Prepare Flex Function prepareFlexFunction is called successfully " name="Prepare Flex Function prepareFlexFunction is called successfully " time="0.04">
+    </testcase>
+    <testcase classname="Prepare Function prepareFlexFunction is called successfully " name="Prepare Function prepareFlexFunction is called successfully " time="0">
+    </testcase>
+    <testcase classname="Prepare Function prepareFlexFunction returns error 400" name="Prepare Function prepareFlexFunction returns error 400" time="0.001">
+    </testcase>
+    <testcase classname="Prepare Function prepareFlexFunction error handler" name="Prepare Function prepareFlexFunction error handler" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:24" time="0.394" tests="5">
+    <testcase classname=" parameterValitor returns success with strings" name=" parameterValitor returns success with strings" time="0.001">
+    </testcase>
+    <testcase classname=" parameterValitor returns success with object" name=" parameterValitor returns success with object" time="0">
+    </testcase>
+    <testcase classname=" parameterValitor returns error with strings" name=" parameterValitor returns error with strings" time="0">
+    </testcase>
+    <testcase classname=" parameterValitor returns error with object" name=" parameterValitor returns error with object" time="0">
+    </testcase>
+    <testcase classname=" parameterValitor returns error with numerical keys" name=" parameterValitor returns error with numerical keys" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Participant mute and coach" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:21" time="3.167" tests="2">
+    <testcase classname="Participant mute and coach participant mute and coach - coachToggle is called successfully " name="Participant mute and coach participant mute and coach - coachToggle is called successfully " time="0.175">
+    </testcase>
+    <testcase classname="Participant mute and coach participant mute and coach - bargeToggle is called successfully " name="Participant mute and coach participant mute and coach - bargeToggle is called successfully " time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Retry Handler" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:24" time="0.289" tests="3">
+    <testcase classname="Retry Handler throws invalid parameter error" name="Retry Handler throws invalid parameter error" time="0.002">
+    </testcase>
+    <testcase classname="Retry Handler returns failed status" name="Retry Handler returns failed status" time="0.003">
+    </testcase>
+    <testcase classname="Retry Handler retry callback is called" name="Retry Handler retry callback is called" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="enable or disable BargeCoachButtonsUponMonitor" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:21" time="4.169" tests="4">
+    <testcase classname="enable or disable BargeCoachButtonsUponMonitor adds afterMonitorCall listener for enable bargeCoach" name="enable or disable BargeCoachButtonsUponMonitor adds afterMonitorCall listener for enable bargeCoach" time="0.002">
+    </testcase>
+    <testcase classname="enable or disable BargeCoachButtonsUponMonitor should call initSyncDoc with correct parameters for enable scenario" name="enable or disable BargeCoachButtonsUponMonitor should call initSyncDoc with correct parameters for enable scenario" time="0.007">
+    </testcase>
+    <testcase classname="enable or disable BargeCoachButtonsUponMonitor adds afterMonitorCall listener for disable bargeCoach" name="enable or disable BargeCoachButtonsUponMonitor adds afterMonitorCall listener for disable bargeCoach" time="0">
+    </testcase>
+    <testcase classname="enable or disable BargeCoachButtonsUponMonitor should call initSyncDoc with correct parameters for disbale scenario" name="enable or disable BargeCoachButtonsUponMonitor should call initSyncDoc with correct parameters for disbale scenario" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="sdk-clients/SyncClient" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:24" time="1.174" tests="2">
+    <testcase classname="sdk-clients/SyncClient should create a SyncClient instance" name="sdk-clients/SyncClient should create a SyncClient instance" time="0">
+    </testcase>
+    <testcase classname="sdk-clients/SyncClient getAllSyncMapItems should load and return all of paginated data" name="sdk-clients/SyncClient getAllSyncMapItems should load and return all of paginated data" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="enable or disable BargeCoachButtonsUponMonitor" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:24" time="1.6" tests="1">
+    <testcase classname="enable or disable BargeCoachButtonsUponMonitor clean state and sync upon agent hangup" name="enable or disable BargeCoachButtonsUponMonitor clean state and sync upon agent hangup" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Coaching status panel" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:24" time="4.564" tests="1">
+    <testcase classname="Coaching status panel renders correct snapshot" name="Coaching status panel renders correct snapshot" time="0.029">
+    </testcase>
+  </testsuite>
+  <testsuite name="Supervisor private button" errors="0" failures="1" skipped="0" timestamp="2023-02-20T19:49:21" time="7.752" tests="2">
+    <testcase classname="Supervisor private button renders the snapshot correctly" name="Supervisor private button renders the snapshot correctly" time="0.026">
+      <failure>Error: expect(received).toMatchSnapshot()
+
+Snapshot name: `Supervisor private button renders the snapshot correctly 1`
+
+- Snapshot  - 0
++ Received  + 2
+
+@@ -32,10 +32,11 @@
+            &lt;div
+              class=&quot;css-ci45q&quot;
+              data-paste-element=&quot;SUPERVISOR_PRIVATE_BUTTON_BOX_CHILD&quot;
+            &gt;
+              &lt;button
++               data-testid=&quot;togglePrivateBtn&quot;
+                icon=&quot;EyeBold&quot;
+                title=&quot;Disable Private Mode&quot;
+                variant=&quot;secondary&quot;
+              /&gt;
+            &lt;/div&gt;
+@@ -61,10 +62,11 @@
+          &lt;div
+            class=&quot;css-ci45q&quot;
+            data-paste-element=&quot;SUPERVISOR_PRIVATE_BUTTON_BOX_CHILD&quot;
+          &gt;
+            &lt;button
++             data-testid=&quot;togglePrivateBtn&quot;
+              icon=&quot;EyeBold&quot;
+              title=&quot;Disable Private Mode&quot;
+              variant=&quot;secondary&quot;
+            /&gt;
+          &lt;/div&gt;
+    at Object.&lt;anonymous&gt; (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/components/SupervisorPrivateModeButton/__tests__/SupervisorPrivateModeButtonComponent.test.tsx:51:27)
+    at Object.asyncJestTest (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)
+    at /Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)</failure>
+    </testcase>
+    <testcase classname="Supervisor private button call coachHandleClick successfully" name="Supervisor private button call coachHandleClick successfully" time="0.047">
+    </testcase>
+  </testsuite>
+  <testsuite name="add task canvas" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:25" time="3.824" tests="1">
+    <testcase classname="add task canvas Task canvas Tabs" name="add task canvas Task canvas Tabs" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="SupervisorBargeCoachButtons component enable to disable" errors="0" failures="1" skipped="0" timestamp="2023-02-20T19:49:21" time="8.046" tests="7">
+    <testcase classname="SupervisorBargeCoachButtons component enable to disable renders correctly" name="SupervisorBargeCoachButtons component enable to disable renders correctly" time="0.03">
+      <failure>Error: expect(received).toMatchSnapshot()
+
+Snapshot name: `SupervisorBargeCoachButtons component enable to disable renders correctly 1`
+
+- Snapshot  - 0
++ Received  + 2
+
+@@ -32,10 +32,11 @@
+            &lt;div
+              class=&quot;css-ci45q&quot;
+              data-paste-element=&quot;BARGE_COACH_BUTTON_BOX_CHILD&quot;
+            &gt;
+              &lt;button
++               data-testid=&quot;bargeBtn&quot;
+                icon=&quot;MuteLargeBold&quot;
+                style=&quot;width: 44px; height: 44px;&quot;
+                title=&quot;Unmute&quot;
+                variant=&quot;secondary&quot;
+              /&gt;
+@@ -80,10 +81,11 @@
+          &lt;div
+            class=&quot;css-ci45q&quot;
+            data-paste-element=&quot;BARGE_COACH_BUTTON_BOX_CHILD&quot;
+          &gt;
+            &lt;button
++             data-testid=&quot;bargeBtn&quot;
+              icon=&quot;MuteLargeBold&quot;
+              style=&quot;width: 44px; height: 44px;&quot;
+              title=&quot;Unmute&quot;
+              variant=&quot;secondary&quot;
+            /&gt;
+    at Object.&lt;anonymous&gt; (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/components/BargeCoachButtons/__tests__/SupervisorBargeCoachButtonComponent.test.tsx:52:21)
+    at Object.asyncJestTest (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)
+    at /Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)</failure>
+    </testcase>
+    <testcase classname="SupervisorBargeCoachButtons component enable to disable call coachHandleClick successfully" name="SupervisorBargeCoachButtons component enable to disable call coachHandleClick successfully" time="0.05">
+    </testcase>
+    <testcase classname="SupervisorBargeCoachButtons component enable to disable call coachHandleClick error due to mismatching workerSID" name="SupervisorBargeCoachButtons component enable to disable call coachHandleClick error due to mismatching workerSID" time="0.018">
+    </testcase>
+    <testcase classname="SupervisorBargeCoachButtons component enable to disable call coachHandleClick error due to no conferenceSID" name="SupervisorBargeCoachButtons component enable to disable call coachHandleClick error due to no conferenceSID" time="0.015">
+    </testcase>
+    <testcase classname="SupervisorBargeCoachButtons component enable to disable call bargeHandleClick successfully" name="SupervisorBargeCoachButtons component enable to disable call bargeHandleClick successfully" time="0.016">
+    </testcase>
+    <testcase classname="SupervisorBargeCoachButtons component enable to disable call bargeHandleClick error due to mismatching workerSID" name="SupervisorBargeCoachButtons component enable to disable call bargeHandleClick error due to mismatching workerSID" time="0.015">
+    </testcase>
+    <testcase classname="SupervisorBargeCoachButtons component enable to disable call bargeHandleClick error due to no conferenceSID" name="SupervisorBargeCoachButtons component enable to disable call bargeHandleClick error due to no conferenceSID" time="0.013">
+    </testcase>
+  </testsuite>
+  <testsuite name="add task canvas" errors="0" failures="1" skipped="0" timestamp="2023-02-20T19:49:24" time="5.172" tests="1">
+    <testcase classname="add task canvas Task canvas Tabs" name="add task canvas Task canvas Tabs" time="0.004">
+      <failure>Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)
+
+Expected number of calls: 1
+Received number of calls: 2
+    at call (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/flex-hooks/components/__tests__/TaskOverviewCanvas.test.tsx:36:31)
+    at tryCatch (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/flex-hooks/components/__tests__/TaskOverviewCanvas.test.tsx:2:1)
+    at Generator._invoke (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/flex-hooks/components/__tests__/TaskOverviewCanvas.test.tsx:2:1)
+    at Generator.next (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/flex-hooks/components/__tests__/TaskOverviewCanvas.test.tsx:2:1)
+    at asyncGeneratorStep (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/flex-hooks/components/__tests__/TaskOverviewCanvas.test.tsx:2:1)
+    at _next (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/flex-hooks/components/__tests__/TaskOverviewCanvas.test.tsx:2:1)
+    at /Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/flex-hooks/components/__tests__/TaskOverviewCanvas.test.tsx:2:1
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt; (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/ui-src/src/flex-hooks/components/__tests__/TaskOverviewCanvas.test.tsx:2:1)
+    at Object.asyncJestTest (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)
+    at /Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shmohanty/Workspace/segregated pugins/SBC/flex-plugin-library-supervisor-barge-coach/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="add transfer button" errors="0" failures="0" skipped="0" timestamp="2023-02-20T19:49:26" time="3.732" tests="1">
+    <testcase classname="add transfer button Call canvas added" name="add transfer button Call canvas added" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

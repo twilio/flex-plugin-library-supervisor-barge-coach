@@ -136,6 +136,18 @@ module.exports = {
       replace: jest.fn(),
     },
   },
+  Supervisor:{
+    TaskCanvasTabs:{
+      Content:{
+        add:jest.fn()
+      }
+    },
+    TaskOverviewCanvas:{
+      Content:{
+        add:jest.fn()
+      }
+    }
+  },
   CallCanvas: {
     Content: {
       add: jest.fn(),
@@ -189,10 +201,11 @@ module.exports = {
     CallParticipantStatusKickConfirmation: () => 'CallParticipantStatusKickConfirmation',
   },
   useFlexSelector: jest.fn(() => {
-    return [
-      { status: 'recently_left', callSid: 'CSxxxxxx', participantType: 'worker' },
-      { status: 'recently_left', callSid: 'CSxxxxxx1', participantType: 'worker' },
-    ];
+    return 'flex-selector-test-id'
+    // [
+    //   { status: 'recently_left', callSid: 'CSxxxxxx', participantType: 'worker' },
+    //   { status: 'recently_left', callSid: 'CSxxxxxx1', participantType: 'worker' },
+    // ];
   }),
   NotificationBar: {
     Action: () => <React.Fragment></React.Fragment>,
