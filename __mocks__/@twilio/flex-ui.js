@@ -6,11 +6,19 @@ import { getMockedServiceConfiguration } from '../../test-utils/flex-service-con
 // We need to mock anything our plugin uses from @twilio/flex-ui here
 
 class WorkerClient extends EventEmitter {
+  eventListeners = {};
   constructor() {
     super();
     this.sid = 'mockWorkerSid';
     this.attributes = {};
     this.reservations = new Map();
+    this.addListener = jest.fn((event, listener) => {
+      if (this.eventListeners[event]) {
+        this.eventListeners[event].push(listener);
+      } else {
+        this.eventListeners[event] = [listener];
+      }
+    });
   }
 }
 

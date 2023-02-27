@@ -33,7 +33,7 @@ describe('add task canvas',()=>{
     it('Task canvas Tabs',async()=>{
         const addContentSpy = jest.spyOn(Flex.Supervisor.TaskOverviewCanvas.Content, 'add');
         addSupervisorBargeCoachButtons(flex, manager);
-        expect(addContentSpy).toHaveBeenCalledTimes(1);
+        expect(addContentSpy).toHaveBeenCalledTimes(2);
         localStorage.removeItem('teamViewTaskSID');
         localStorage.removeItem('agentSyncDoc')
         localStorage.removeItem('privateToggle')
