@@ -23,6 +23,7 @@ module.exports = {
       '/test-utils',
       '/types',
       '/strings',
+      'ui-src/build',
       '/utils',
     ],
     coverageReporters: ['json', 'lcov', 'text', 'clover', 'cobertura'],

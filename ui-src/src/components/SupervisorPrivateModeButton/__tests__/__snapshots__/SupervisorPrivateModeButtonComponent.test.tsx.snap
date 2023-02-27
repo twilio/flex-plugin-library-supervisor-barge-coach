@@ -37,6 +37,7 @@ Object {
             data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX_CHILD"
           >
             <button
+              data-testid="togglePrivateBtn"
               icon="EyeBold"
               title="Disable Private Mode"
               variant="secondary"
@@ -66,6 +67,7 @@ Object {
           data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX_CHILD"
         >
           <button
+            data-testid="togglePrivateBtn"
             icon="EyeBold"
             title="Disable Private Mode"
             variant="secondary"

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SupervisorBargeCoachButtons component enable to disable renders correctly 1`] = `
+exports[`Supervisor Monitor panel renders correct snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -30,43 +30,39 @@ Object {
       >
         <div
           class="css-tfro19"
-          data-paste-element="BARGE_COACH_BUTTON_BOX"
+          data-paste-element="COACH_STATUS_PANEL_BOX"
         >
           <div
-            class="css-ci45q"
-            data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-          >
-            <button
-              data-testid="bargeBtn"
-              icon="MuteLargeBold"
-              style="width: 44px; height: 44px;"
-              title="Unmute"
-              variant="secondary"
-            />
-          </div>
-          <div
-            class="css-ci45q"
-            data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-          >
-            <button
-              disabled=""
-              icon="IncomingCallBold"
-              style="width: 44px; height: 44px;"
-              title="Barge-Out"
-              variant="primary"
-            />
-          </div>
-          <div
             class="css-roynbj"
-            data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
+            data-paste-element="COACH_STATUS_PANEL_BOX_CHILD"
           >
-            <button
-              data-testid="coachBtn"
-              icon="DefaultAvatarBold"
-              style="width: 44px; height: 44px;"
-              title="Disable Coach Mode"
-              variant="primary"
-            />
+            <div
+              class="css-176snxq"
+              data-paste-element="BOX"
+            >
+              Active Supervisors:
+              <div
+                class="css-roynbj"
+                data-paste-element="BOX"
+              >
+                <ol>
+                  <p
+                    class="css-17d3dsd"
+                    data-paste-element="TEXT"
+                  >
+                    <tr>
+                      <td />
+                      <td
+                        style="color: green;"
+                      >
+                         
+                        is Monitoring
+                      </td>
+                    </tr>
+                  </p>
+                </ol>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -79,43 +75,39 @@ Object {
     >
       <div
         class="css-tfro19"
-        data-paste-element="BARGE_COACH_BUTTON_BOX"
+        data-paste-element="COACH_STATUS_PANEL_BOX"
       >
         <div
-          class="css-ci45q"
-          data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-        >
-          <button
-            data-testid="bargeBtn"
-            icon="MuteLargeBold"
-            style="width: 44px; height: 44px;"
-            title="Unmute"
-            variant="secondary"
-          />
-        </div>
-        <div
-          class="css-ci45q"
-          data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-        >
-          <button
-            disabled=""
-            icon="IncomingCallBold"
-            style="width: 44px; height: 44px;"
-            title="Barge-Out"
-            variant="primary"
-          />
-        </div>
-        <div
           class="css-roynbj"
-          data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
+          data-paste-element="COACH_STATUS_PANEL_BOX_CHILD"
         >
-          <button
-            data-testid="coachBtn"
-            icon="DefaultAvatarBold"
-            style="width: 44px; height: 44px;"
-            title="Disable Coach Mode"
-            variant="primary"
-          />
+          <div
+            class="css-176snxq"
+            data-paste-element="BOX"
+          >
+            Active Supervisors:
+            <div
+              class="css-roynbj"
+              data-paste-element="BOX"
+            >
+              <ol>
+                <p
+                  class="css-17d3dsd"
+                  data-paste-element="TEXT"
+                >
+                  <tr>
+                    <td />
+                    <td
+                      style="color: green;"
+                    >
+                       
+                      is Monitoring
+                    </td>
+                  </tr>
+                </p>
+              </ol>
+            </div>
+          </div>
         </div>
       </div>
     </div>
