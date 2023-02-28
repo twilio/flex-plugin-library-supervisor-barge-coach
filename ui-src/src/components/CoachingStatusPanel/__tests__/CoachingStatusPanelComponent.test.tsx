@@ -1,8 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import userEvent from '@testing-library/user-event';
-import BargeCoachService from '../../../utils/serverless/BargeCoachService';
 import { CoachingStatusPanel } from '../CoachingStatusPanelComponent';
 
 jest.mock('../../../utils/serverless/BargeCoachService');
