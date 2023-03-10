@@ -22,11 +22,6 @@ export default abstract class ApiService {
 
     if (process.env?.FLEX_APP_SERVERLESS_FUNCTONS_DOMAIN)
       this.serverlessDomain = process.env?.FLEX_APP_SERVERLESS_FUNCTONS_DOMAIN;
-
-    if (!this.serverlessDomain)
-      console.error(
-        "serverless_functions_domain is not set in flex config or env file"
-      );
   }
 
   protected buildBody(encodedParams: EncodedParams): string {
