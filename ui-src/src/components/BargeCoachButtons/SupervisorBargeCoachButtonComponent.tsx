@@ -31,8 +31,7 @@ export const SupervisorBargeCoachButtons = ({task}: SupervisorBargeCoachProps) =
   const agentWorkerSID = useFlexSelector(state => state?.flex?.supervisor?.stickyWorker?.worker?.sid);
   const myWorkerSID = useFlexSelector(state => state?.flex?.worker?.worker?.sid);
   const supervisorFN = useFlexSelector(state => state?.flex?.worker?.attributes?.full_name);
-console.log(myWorkerSID);
-console.log(agentWorkerSID);
+
   // Confirming if Agent Coaching Panel is enabled, we will use this in the Supervisor Barge Coach component
   const agent_coaching_panel = isAgentCoachingPanelEnabled();
 
