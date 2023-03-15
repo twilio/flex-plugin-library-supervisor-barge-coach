@@ -25,6 +25,8 @@ module.exports = {
       '/strings',
       'ui-src/build',
       '/utils',
+      '/assets',
+      '/functions/setup.js'
     ],
     coverageReporters: ['json', 'lcov', 'text', 'clover', 'cobertura'],
     testResultsProcessor: 'jest-junit',
