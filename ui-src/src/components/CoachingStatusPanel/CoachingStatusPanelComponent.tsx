@@ -11,14 +11,14 @@ import { SyncDoc } from '../../utils/sync/Sync'
 type CoachingStatusPanelProps = {
 }
 
-export const CoachingStatusPanel = ({}: CoachingStatusPanelProps) => {
+export const CoachingStatusPanel = ({ }: CoachingStatusPanelProps) => {
   const dispatch = useDispatch();
 
   let {
     supervisorArray,
     syncSubscribed
   } = useSelector((state: AppState) => state[reduxNamespace].supervisorBargeCoach);
- 
+
   const myWorkerSID = useFlexSelector(state => state?.flex?.worker?.worker?.sid);
 
   const syncUpdates = () => {
@@ -27,40 +27,40 @@ export const CoachingStatusPanel = ({}: CoachingStatusPanelProps) => {
       // if we are being coached, if we are, render that in the UI
       // otherwise leave it blank
       const mySyncDoc = `syncDoc.${myWorkerSID}`;
-      
+
       SyncDoc.getSyncDoc(mySyncDoc)
-      .then(doc => {
-        // We are subscribing to Sync Doc updates here and logging anytime that happens
-        doc.on("updated", (updatedDoc: string) => {
-          if (doc.data.supervisors != null) {
-            supervisorArray = [...doc.data.supervisors];
-            // Current verion of this feature will only show the Agent they are being coached
-            // This could be updated by removing the below logic and including Monitoring and Joined (barged)
-            for(let i = 0; i < supervisorArray.length; i++){ 
-                                    
-              if (supervisorArray[i].status == "is Monitoring" || supervisorArray[i].status == "has Joined") { 
-                  supervisorArray.splice(i, 1); 
-                  i--; 
+        .then(doc => {
+          // We are subscribing to Sync Doc updates here and logging anytime that happens
+          doc.on("updated", (updatedDoc: string) => {
+            if (doc.data.supervisors != null) {
+              supervisorArray = [...doc.data.supervisors];
+              // Current verion of this feature will only show the Agent they are being coached
+              // This could be updated by removing the below logic and including Monitoring and Joined (barged)
+              for (let i = 0; i < supervisorArray.length; i++) {
+
+                if (supervisorArray[i].status == "is Monitoring" || supervisorArray[i].status == "has Joined") {
+                  supervisorArray.splice(i, 1);
+                  i--;
+                }
               }
+            } else {
+              supervisorArray = [];
             }
-          } else {
-            supervisorArray = [];
-          }
-  
-          // Set Supervisor's name that is coaching into props
-          dispatch(Actions.setBargeCoachStatus({ 
-            supervisorArray: supervisorArray
-          }));
-        })
-      });
-      dispatch(Actions.setBargeCoachStatus({ 
+
+            // Set Supervisor's name that is coaching into props
+            dispatch(Actions.setBargeCoachStatus({
+              supervisorArray: supervisorArray
+            }));
+          })
+        });
+      dispatch(Actions.setBargeCoachStatus({
         syncSubscribed: true,
       }));
     }
 
     return;
   }
-  
+
   syncUpdates();
 
   // If the supervisor array has value in it, that means someone is coaching
@@ -73,18 +73,20 @@ export const CoachingStatusPanel = ({}: CoachingStatusPanelProps) => {
         <Flex hAlignContent="center" vertical>
           <Stack orientation="horizontal" spacing="space30" element="COACH_STATUS_PANEL_BOX">
             <Box backgroundColor="colorBackgroundPrimaryWeakest" padding="space40">
-              You are being Coached by: 
+              You are being Coached by:
               <Box>
                 <ol>
                   <Text
-                  as="p"
-                  fontWeight="fontWeightMedium"
-                  fontSize="fontSize30"
-                  marginBottom="space40"
-                  color="colorTextSuccess"
+                    as="p"
+                    fontWeight="fontWeightMedium"
+                    fontSize="fontSize30"
+                    marginBottom="space40"
+                    color="colorTextSuccess"
                   >
                     {supervisorArray.map((supervisorArray: { supervisor: {} }) => (
-                        <li key={`${Math.random()}`}>{supervisorArray.supervisor}</li>
+                      <li key={`${Math.random()}`}>
+                        <span>{supervisorArray.supervisor}</span>
+                      </li>
                     ))}
                   </Text>
                 </ol>
@@ -93,7 +95,7 @@ export const CoachingStatusPanel = ({}: CoachingStatusPanelProps) => {
           </Stack>
         </Flex>
       </>
-      );
+    );
   } else {
     return (
       <></>
