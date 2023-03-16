@@ -31,7 +31,9 @@ Object {
                     class="css-17d3dsd"
                     data-paste-element="TEXT"
                   >
-                    <li />
+                    <li>
+                      <span />
+                    </li>
                   </p>
                 </ol>
               </div>
@@ -68,7 +70,9 @@ Object {
                   class="css-17d3dsd"
                   data-paste-element="TEXT"
                 >
-                  <li />
+                  <li>
+                    <span />
+                  </li>
                 </p>
               </ol>
             </div>
