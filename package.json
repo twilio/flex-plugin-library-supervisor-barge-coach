@@ -13,7 +13,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "twilio": "^4.0.0",
-    "twilio-flex-token-validator": "^1.5.4",
+    "twilio-flex-token-validator": "^1.5.8",
     "@twilio-labs/runtime-helpers": "^0.1.2",
     "@twilio-labs/serverless-api": "^5.5.0"
   },
