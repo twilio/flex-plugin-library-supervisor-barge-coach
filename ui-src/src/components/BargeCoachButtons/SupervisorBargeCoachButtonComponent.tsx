@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppState, reduxNamespace } from '../../states'
 import { Actions } from "../../flex-hooks/states/SupervisorBargeCoach"
 import BargeCoachService from '../../utils/serverless/BargeCoachService';
-import { Flex, Stack } from "@twilio-paste/core";
+import { Flex } from "@twilio-paste/core";
 import { isAgentCoachingPanelEnabled } from '../..';
 
 // Used for Sync Docs
@@ -203,7 +203,7 @@ export const SupervisorBargeCoachButtons = ({task}: SupervisorBargeCoachProps) =
   return (
     <> 
       <Flex hAlignContent="center" vertical>
-        <Stack orientation="horizontal" spacing="space30" element="BARGE_COACH_BUTTON_BOX">
+        <Flex width="60%" hAlignContent="around" element="BARGE_COACH_BUTTON_BOX">
           <IconButton
             icon={ muted ? 'MuteLargeBold' : 'MuteLarge' }
             disabled={!isLiveCall || !enableBargeinButton || !enableCoachButton || (!barge && !coaching) }
@@ -230,7 +230,7 @@ export const SupervisorBargeCoachButtons = ({task}: SupervisorBargeCoachProps) =
             style={{width:'44px',height:'44px'}}
             data-testid="coachBtn"
           />
-        </Stack>
+        </Flex>
       </Flex>
     </>
   );

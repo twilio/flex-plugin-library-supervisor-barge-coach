@@ -13,6 +13,13 @@ type SupervisorPrivateToggleProps = {
   task: ITask
 }
 
+const classes = {
+  privateModeContainer:{
+    marginTop:'24px',
+    marginBottom:'12px'
+  }
+}
+
 export const SupervisorPrivateToggle = ({task}: SupervisorPrivateToggleProps) => {
   const dispatch = useDispatch();
 
@@ -59,8 +66,8 @@ export const SupervisorPrivateToggle = ({task}: SupervisorPrivateToggleProps) =>
   const isLiveCall = TaskHelper.isLiveCall(task);
 
   return (
-    <>
-      <Flex hAlignContent="center" vertical padding="space30">
+    <div style={classes.privateModeContainer}>
+      <Flex hAlignContent="center" vertical padding="space30" margin="auto">
         <Stack orientation="horizontal" spacing="space30" element="SUPERVISOR_PRIVATE_BUTTON_BOX">
           <IconButton
             icon={ privateMode ? 'EyeBold' : 'Eye' }
@@ -70,9 +77,8 @@ export const SupervisorPrivateToggle = ({task}: SupervisorPrivateToggleProps) =>
             variant="secondary"
             data-testid="togglePrivateBtn"
           />
-          { privateMode ? "Privacy On" : "Privacy Off" }
         </Stack>
       </Flex>
-    </>
+    </div>
   );
 }
