@@ -67,7 +67,7 @@ export const SupervisorPrivateToggle = ({task}: SupervisorPrivateToggleProps) =>
 
   return (
     <div style={classes.privateModeContainer}>
-      <Flex hAlignContent="center" vertical padding="space30" margin="auto">
+      <Flex hAlignContent="center" vertical padding="space30">
         <Stack orientation="horizontal" spacing="space30" element="SUPERVISOR_PRIVATE_BUTTON_BOX">
           <IconButton
             icon={ privateMode ? 'EyeBold' : 'Eye' }
