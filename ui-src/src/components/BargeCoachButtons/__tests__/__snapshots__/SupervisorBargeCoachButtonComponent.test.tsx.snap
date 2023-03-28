@@ -4,51 +4,55 @@ exports[`SupervisorBargeCoachButtons component enable to disable renders correct
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <style>
+      
+    table.disable-selection {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none; 
+      -khtml-user-select: none; 
+      -moz-user-select: none; 
+      -ms-user-select: none; 
+      user-select: none;
+    }
+  
+    .disable-selection span::selection{
+      background-color: transparent;
+    }
+    .disable-selection br::selection{
+      background-color: transparent;
+    }
+  
+    </style>
     <div>
       <div
         class="css-x2lkna"
         data-paste-element="FLEX"
       >
         <div
-          class="css-tfro19"
+          class="css-ceamo7"
           data-paste-element="BARGE_COACH_BUTTON_BOX"
         >
-          <div
-            class="css-ci45q"
-            data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-          >
-            <button
-              data-testid="bargeBtn"
-              icon="MuteLargeBold"
-              style="width: 44px; height: 44px;"
-              title="Unmute"
-              variant="secondary"
-            />
-          </div>
-          <div
-            class="css-ci45q"
-            data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-          >
-            <button
-              disabled=""
-              icon="IncomingCallBold"
-              style="width: 44px; height: 44px;"
-              title="Barge-Out"
-              variant="primary"
-            />
-          </div>
-          <div
-            class="css-roynbj"
-            data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-          >
-            <button
-              data-testid="coachBtn"
-              icon="DefaultAvatarBold"
-              style="width: 44px; height: 44px;"
-              title="Disable Coach Mode"
-              variant="primary"
-            />
-          </div>
+          <button
+            data-testid="bargeBtn"
+            icon="MuteLargeBold"
+            style="width: 44px; height: 44px;"
+            title="Unmute"
+            variant="secondary"
+          />
+          <button
+            disabled=""
+            icon="IncomingCallBold"
+            style="width: 44px; height: 44px;"
+            title="Barge-Out"
+            variant="primary"
+          />
+          <button
+            data-testid="coachBtn"
+            icon="DefaultAvatarBold"
+            style="width: 44px; height: 44px;"
+            title="Disable Coach Mode"
+            variant="primary"
+          />
         </div>
       </div>
     </div>
@@ -59,45 +63,30 @@ Object {
       data-paste-element="FLEX"
     >
       <div
-        class="css-tfro19"
+        class="css-ceamo7"
         data-paste-element="BARGE_COACH_BUTTON_BOX"
       >
-        <div
-          class="css-ci45q"
-          data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-        >
-          <button
-            data-testid="bargeBtn"
-            icon="MuteLargeBold"
-            style="width: 44px; height: 44px;"
-            title="Unmute"
-            variant="secondary"
-          />
-        </div>
-        <div
-          class="css-ci45q"
-          data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-        >
-          <button
-            disabled=""
-            icon="IncomingCallBold"
-            style="width: 44px; height: 44px;"
-            title="Barge-Out"
-            variant="primary"
-          />
-        </div>
-        <div
-          class="css-roynbj"
-          data-paste-element="BARGE_COACH_BUTTON_BOX_CHILD"
-        >
-          <button
-            data-testid="coachBtn"
-            icon="DefaultAvatarBold"
-            style="width: 44px; height: 44px;"
-            title="Disable Coach Mode"
-            variant="primary"
-          />
-        </div>
+        <button
+          data-testid="bargeBtn"
+          icon="MuteLargeBold"
+          style="width: 44px; height: 44px;"
+          title="Unmute"
+          variant="secondary"
+        />
+        <button
+          disabled=""
+          icon="IncomingCallBold"
+          style="width: 44px; height: 44px;"
+          title="Barge-Out"
+          variant="primary"
+        />
+        <button
+          data-testid="coachBtn"
+          icon="DefaultAvatarBold"
+          style="width: 44px; height: 44px;"
+          title="Disable Coach Mode"
+          variant="primary"
+        />
       </div>
     </div>
   </div>,
