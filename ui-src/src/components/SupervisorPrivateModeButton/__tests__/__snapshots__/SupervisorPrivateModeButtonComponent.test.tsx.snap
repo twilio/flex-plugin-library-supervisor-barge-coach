@@ -4,7 +4,57 @@ exports[`Supervisor private button renders the snapshot correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <style>
+      
+    table.disable-selection {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none; 
+      -khtml-user-select: none; 
+      -moz-user-select: none; 
+      -ms-user-select: none; 
+      user-select: none;
+    }
+  
+    .disable-selection span::selection{
+      background-color: transparent;
+    }
+    .disable-selection br::selection{
+      background-color: transparent;
+    }
+  
+    </style>
     <div>
+      <div
+        style="margin-top: 24px; margin-bottom: 12px;"
+      >
+        <div
+          class="css-1dhdhv0"
+          data-paste-element="FLEX"
+        >
+          <div
+            class="css-tfro19"
+            data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX"
+          >
+            <div
+              class="css-roynbj"
+              data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX_CHILD"
+            >
+              <button
+                data-testid="togglePrivateBtn"
+                icon="EyeBold"
+                title="Disable Private Mode"
+                variant="secondary"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      style="margin-top: 24px; margin-bottom: 12px;"
+    >
       <div
         class="css-1dhdhv0"
         data-paste-element="FLEX"
@@ -14,7 +64,7 @@ Object {
           data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX"
         >
           <div
-            class="css-ci45q"
+            class="css-roynbj"
             data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX_CHILD"
           >
             <button
@@ -24,41 +74,6 @@ Object {
               variant="secondary"
             />
           </div>
-          <div
-            class="css-roynbj"
-            data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX_CHILD"
-          >
-            Privacy On
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="css-1dhdhv0"
-      data-paste-element="FLEX"
-    >
-      <div
-        class="css-tfro19"
-        data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX"
-      >
-        <div
-          class="css-ci45q"
-          data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX_CHILD"
-        >
-          <button
-            data-testid="togglePrivateBtn"
-            icon="EyeBold"
-            title="Disable Private Mode"
-            variant="secondary"
-          />
-        </div>
-        <div
-          class="css-roynbj"
-          data-paste-element="SUPERVISOR_PRIVATE_BUTTON_BOX_CHILD"
-        >
-          Privacy On
         </div>
       </div>
     </div>
