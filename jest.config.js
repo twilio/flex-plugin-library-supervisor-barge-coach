@@ -23,7 +23,9 @@ module.exports = {
       '/test-utils',
       '/types',
       '/strings',
-      'ui-src/build',
+      '/ui-src/build',
+      '/ui-src/src/SupervisorBargeCoachPlugin.tsx',
+      '/ui-src/src/index.ts',
       '/utils',
       '/assets',
       '/functions/setup.js'
