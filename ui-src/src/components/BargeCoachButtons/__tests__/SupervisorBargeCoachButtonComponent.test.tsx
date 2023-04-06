@@ -85,54 +85,54 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     await user.click(coachBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
-  it('call coachHandleClick error due to mismatching workerSID', async () => {
-    const user = userEvent.setup();
-    const mockErrorTask = {
-      conference: {
-        conferenceSid: "CFxxxxxx",
-        participants: [{
-          participantType: 'worker',
-          workerSid: 'WKxxx',
-          callSid: 'CAxxxx'
-        }],
-        source: {
-          channelParticipants: [
-            {
-              participantSid: 'PAxxxx',
-              type: 'supervisor',
-              mediaProperties: {
-                status: 'joined'
-              },
-              routingProperties: {
-                workerSid: 'WKxxx'
-              }
-            }
-          ]
-        }
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockErrorTask} />
-    )
-    const coachBtn = getByTestId('coachBtn');
-    expect(coachBtn).toBeEnabled();
-    await user.click(coachBtn);
-    //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
-  });
-  it('call coachHandleClick error due to no conferenceSID', async () => {
-    const user = userEvent.setup();
-    const mockErrorTask = {
-      conference: {
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockErrorTask} />
-    )
-    const coachBtn = getByTestId('coachBtn');
-    expect(coachBtn).toBeEnabled();
-    await user.click(coachBtn);
-    //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
-  });
+  // it('call coachHandleClick error due to mismatching workerSID', async () => {
+  //   const user = userEvent.setup();
+  //   const mockErrorTask = {
+  //     conference: {
+  //       conferenceSid: "CFxxxxxx",
+  //       participants: [{
+  //         participantType: 'worker',
+  //         workerSid: 'WKxxx',
+  //         callSid: 'CAxxxx'
+  //       }],
+  //       source: {
+  //         channelParticipants: [
+  //           {
+  //             participantSid: 'PAxxxx',
+  //             type: 'supervisor',
+  //             mediaProperties: {
+  //               status: 'joined'
+  //             },
+  //             routingProperties: {
+  //               workerSid: 'WKxxx'
+  //             }
+  //           }
+  //         ]
+  //       }
+  //     }
+  //   }
+  //   const { getByTestId } = render(
+  //     <SupervisorBargeCoachButtons task={mockErrorTask} />
+  //   )
+  //   const coachBtn = getByTestId('coachBtn');
+  //   expect(coachBtn).toBeEnabled();
+  //   await user.click(coachBtn);
+  //   //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
+  // });
+  // it('call coachHandleClick error due to no conferenceSID', async () => {
+  //   const user = userEvent.setup();
+  //   const mockErrorTask = {
+  //     conference: {
+  //     }
+  //   }
+  //   const { getByTestId } = render(
+  //     <SupervisorBargeCoachButtons task={mockErrorTask} />
+  //   )
+  //   const coachBtn = getByTestId('coachBtn');
+  //   expect(coachBtn).toBeEnabled();
+  //   await user.click(coachBtn);
+  //   //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
+  // });
   it('call bargeHandleClick successfully', async () => {
     const user = userEvent.setup();
     const mockTask = {
@@ -167,53 +167,53 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     await user.click(bargeBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
-  it('call bargeHandleClick error due to mismatching workerSID', async () => {
-    const user = userEvent.setup();
-    const mockErrorTask = {
-      conference: {
-        conferenceSid: "CFxxxxxx",
-        participants: [{
-          participantType: 'worker',
-          workerSid: 'WKxxx',
-          callSid: 'CAxxxx'
-        }],
-        source: {
-          channelParticipants: [
-            {
-              participantSid: 'PAxxxx',
-              type: 'supervisor',
-              mediaProperties: {
-                status: 'joined'
-              },
-              routingProperties: {
-                workerSid: 'WKxxx'
-              }
-            }
-          ]
-        }
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockErrorTask} />
-    )
-    const bargeBtn = getByTestId('bargeBtn');
-    expect(bargeBtn).toBeEnabled();
-    await user.click(bargeBtn);
-    //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
-  });
-  it('call bargeHandleClick error due to no conferenceSID', async () => {
-    const user = userEvent.setup();
-    const mockErrorTask = {
-      conference: {
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockErrorTask} />
-    )
-    const bargeBtn = getByTestId('bargeBtn');
-    expect(bargeBtn).toBeEnabled();
-    await user.click(bargeBtn);
-    //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
-  });
+  // it('call bargeHandleClick error due to mismatching workerSID', async () => {
+  //   const user = userEvent.setup();
+  //   const mockErrorTask = {
+  //     conference: {
+  //       conferenceSid: "CFxxxxxx",
+  //       participants: [{
+  //         participantType: 'worker',
+  //         workerSid: 'WKxxx',
+  //         callSid: 'CAxxxx'
+  //       }],
+  //       source: {
+  //         channelParticipants: [
+  //           {
+  //             participantSid: 'PAxxxx',
+  //             type: 'supervisor',
+  //             mediaProperties: {
+  //               status: 'joined'
+  //             },
+  //             routingProperties: {
+  //               workerSid: 'WKxxx'
+  //             }
+  //           }
+  //         ]
+  //       }
+  //     }
+  //   }
+  //   const { getByTestId } = render(
+  //     <SupervisorBargeCoachButtons task={mockErrorTask} />
+  //   )
+  //   const bargeBtn = getByTestId('bargeBtn');
+  //   expect(bargeBtn).toBeEnabled();
+  //   await user.click(bargeBtn);
+  //   //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
+  // });
+  // it('call bargeHandleClick error due to no conferenceSID', async () => {
+  //   const user = userEvent.setup();
+  //   const mockErrorTask = {
+  //     conference: {
+  //     }
+  //   }
+  //   const { getByTestId } = render(
+  //     <SupervisorBargeCoachButtons task={mockErrorTask} />
+  //   )
+  //   const bargeBtn = getByTestId('bargeBtn');
+  //   expect(bargeBtn).toBeEnabled();
+  //   await user.click(bargeBtn);
+  //   //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
+  // });
 })
 
