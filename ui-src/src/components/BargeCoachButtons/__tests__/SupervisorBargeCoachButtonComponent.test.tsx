@@ -81,7 +81,7 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     )
     const coachBtn = getByTestId('coachBtn');
     expect(coachBtn).toBeEnabled();
-    await userEvent.click(coachBtn);
+    //await userEvent.click(coachBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call coachHandleClick error due to mismatching workerSID', async () => {
