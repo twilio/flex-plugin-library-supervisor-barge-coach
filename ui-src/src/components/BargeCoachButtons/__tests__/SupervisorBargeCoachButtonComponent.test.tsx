@@ -52,6 +52,7 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     expect(wrapper).toMatchSnapshot();
   });
   it('call coachHandleClick successfully', async () => {
+    const user = userEvent.setup();
     const mockTask = {
       conference: {
         conferenceSid: "CFxxxxxx",
@@ -81,10 +82,11 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     )
     const coachBtn = getByTestId('coachBtn');
     expect(coachBtn).toBeEnabled();
-    //await userEvent.click(coachBtn);
+    await user.click(coachBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call coachHandleClick error due to mismatching workerSID', async () => {
+    const user = userEvent.setup();
     const mockErrorTask = {
       conference: {
         conferenceSid: "CFxxxxxx",
@@ -114,10 +116,11 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     )
     const coachBtn = getByTestId('coachBtn');
     expect(coachBtn).toBeEnabled();
-    await userEvent.click(coachBtn);
+    await user.click(coachBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call coachHandleClick error due to no conferenceSID', async () => {
+    const user = userEvent.setup();
     const mockErrorTask = {
       conference: {
       }
@@ -127,10 +130,11 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     )
     const coachBtn = getByTestId('coachBtn');
     expect(coachBtn).toBeEnabled();
-    await userEvent.click(coachBtn);
+    await user.click(coachBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call bargeHandleClick successfully', async () => {
+    const user = userEvent.setup();
     const mockTask = {
       conference: {
         conferenceSid: "CFxxxxxx",
@@ -160,10 +164,11 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     )
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
-    await userEvent.click(bargeBtn);
+    await user.click(bargeBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call bargeHandleClick error due to mismatching workerSID', async () => {
+    const user = userEvent.setup();
     const mockErrorTask = {
       conference: {
         conferenceSid: "CFxxxxxx",
@@ -193,10 +198,11 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     )
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
-    await userEvent.click(bargeBtn);
+    await user.click(bargeBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call bargeHandleClick error due to no conferenceSID', async () => {
+    const user = userEvent.setup();
     const mockErrorTask = {
       conference: {
       }
@@ -206,7 +212,7 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     )
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
-    await userEvent.click(bargeBtn);
+    await user.click(bargeBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
 })

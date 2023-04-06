@@ -51,6 +51,7 @@ jest.mock('react-redux', () => ({
           expect(wrapper).toMatchSnapshot();
     })
     it('call coachHandleClick successfully', async () => {
+      const user = userEvent.setup();
         const mockTask = {
           conference: {
             conferenceSid: "CFxxxxxx",
@@ -80,7 +81,7 @@ jest.mock('react-redux', () => ({
         )
         const togglePrivateBtn = getByTestId('togglePrivateBtn');
         expect(togglePrivateBtn).toBeEnabled();
-        await userEvent.click(togglePrivateBtn);
+        await user.click(togglePrivateBtn);
         //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
       });
   })
