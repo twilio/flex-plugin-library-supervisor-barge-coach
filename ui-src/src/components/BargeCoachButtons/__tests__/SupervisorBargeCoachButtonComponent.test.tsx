@@ -19,6 +19,7 @@ jest.mock('react-redux', () => ({
 jest.mock('../../..', () => ({
   isAgentCoachingPanelEnabled: jest.fn().mockReturnValue(true)
 }))
+
 describe('SupervisorBargeCoachButtons component enable to disable', () => {
   it('renders correctly', () => {
     const mockTask = {
