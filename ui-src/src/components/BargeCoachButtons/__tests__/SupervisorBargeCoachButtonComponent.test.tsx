@@ -128,6 +128,7 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     const coachBtn = getByTestId('coachBtn');
     expect(coachBtn).toBeEnabled();
     await userEvent.click(coachBtn);
+    expect(consoleSpy).toHaveBeenCalledWith('conferenceSid = null, returning');
   });
   it('call bargeHandleClick successfully', async () => {
     const mockTask = {
