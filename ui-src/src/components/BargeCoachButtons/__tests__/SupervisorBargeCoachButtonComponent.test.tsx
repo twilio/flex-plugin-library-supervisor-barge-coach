@@ -117,6 +117,7 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call coachHandleClick error due to no conferenceSID', async () => {
+    const consoleSpy = jest.spyOn(console, 'log');
     const mockErrorTask = {
       conference: {
       }
@@ -127,7 +128,6 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     const coachBtn = getByTestId('coachBtn');
     expect(coachBtn).toBeEnabled();
     await userEvent.click(coachBtn);
-    //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call bargeHandleClick successfully', async () => {
     const mockTask = {
@@ -196,6 +196,7 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call bargeHandleClick error due to no conferenceSID', async () => {
+    const consoleSpy = jest.spyOn(console, 'log');
     const mockErrorTask = {
       conference: {
       }
@@ -206,7 +207,7 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
     await userEvent.click(bargeBtn);
-    //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
+    expect(consoleSpy).toHaveBeenCalledWith('conferenceSid = null, returning');
   });
 })
 
