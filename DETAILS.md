@@ -6,7 +6,7 @@ Plugin is ready to use once it is installed and the browser window is refreshed.
 - Clicking the Monitor button enables the Barge and Coach buttons.
 - Supervisor *Barge* is getting into a 3 way conference with the agent and the caller.
 - *Coach* is a supervisor speaking to an agent privately while the caller can only hear the agent.
-- Supervisor can also toggle private mode so ???what
+- Supervisor can also toggle private mode.
 
 ### Installation
 During installation, 2 fields are required:
