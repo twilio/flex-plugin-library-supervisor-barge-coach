@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { TaskHelper, useFlexSelector, ITask, Manager, IconButton } from '@twilio/flex-ui';
+import { TaskHelper, useFlexSelector, ITask, IconButton } from '@twilio/flex-ui';
+import { ParticipantTypes } from '@twilio/flex-ui/src/state/Participants/participants.types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState, reduxNamespace } from '../../states'
 import { Actions } from "../../flex-hooks/states/SupervisorBargeCoach"
@@ -9,7 +10,7 @@ import { isAgentCoachingPanelEnabled } from '../..';
 
 // Used for Sync Docs
 import { SyncDoc } from '../../utils/sync/Sync'
-import { ParticipantTypes } from '@twilio/flex-ui/src/state/Participants/participants.types';
+import Analytics, { Event } from '../../utils/Analytics';
 
 type SupervisorBargeCoachProps = {
   task: ITask
@@ -53,7 +54,7 @@ export const SupervisorBargeCoachButtons = ({task}: SupervisorBargeCoachProps) =
   // We've built in resiliency if the supervisor refreshes their browser
   // or clicks monitor/un-monitor multiple times, it still confirms that
   // we allow the correct user to barge-in on the call
-  const bargeHandleClick = () => {
+  const bargeHandleClick = (isBarging: boolean) => {
     const conference = task && task.conference;
     const conferenceSid = conference?.conferenceSid;
     if (!conferenceSid) {
@@ -66,11 +67,22 @@ export const SupervisorBargeCoachButtons = ({task}: SupervisorBargeCoachProps) =
     // it creates an additional participant, the previous status will show as "left", we only want the active supervisor, 
     // and finally we want to ensure that the supervisor that is joined also matches their worker_sid 
     // which we pull from mapStateToProps at the bottom of this js file
-    const supervisorParticipant = conference?.source.channelParticipants.find(p => p.type === 'supervisor' as ParticipantTypes 
-      && p.mediaProperties.status === 'joined' 
-      && myWorkerSID === p.routingProperties.workerSid);
+    const supervisorParticipant = conference?.source.channelParticipants.find(
+      (p) =>
+        p.type === ("supervisor" as ParticipantTypes) &&
+        p.mediaProperties.status === "joined" &&
+        myWorkerSID === p.routingProperties.workerSid
+    );
     const participantSid = supervisorParticipant?.participantSid;
-    console.log(`Current supervisorSID = ${supervisorParticipant?.participantSid}`);
+    let agentParticipant = conference?.participants.find(
+      (p) => p.participantType === "worker" && agentWorkerSID === p.workerSid
+    );
+    const agentSid = agentParticipant?.callSid;
+
+    console.log(
+      `Current supervisorSID = ${supervisorParticipant?.participantSid}`
+    );
+    console.log(`Current agentSid = ${agentSid}`);
 
     // If the supervisorParticipant.key is null return, this would be rare and best practice to include this
     // before calling any function you do not want to send it null values unless your function is expecting that
@@ -121,6 +133,14 @@ export const SupervisorBargeCoachButtons = ({task}: SupervisorBargeCoachProps) =
           barge: true
         }));
       }
+    }
+
+    if (isBarging) {
+      Analytics.track(Event.CALL_START_BARGE, {
+        conferenceSid,
+        participantSid,
+        agentSid,
+      });
     }
   }
 
@@ -194,6 +214,12 @@ export const SupervisorBargeCoachButtons = ({task}: SupervisorBargeCoachProps) =
         // Updating the Sync Doc to reflect that we are now coaching the agent
         SyncDoc.initSyncDoc(agentWorkerSID, conferenceSid, myWorkerSID, supervisorFN, "is Coaching", "update");
       }
+
+      Analytics.track(Event.CALL_START_COACH, {
+        conferenceSid,
+        participantSid,
+        agentSid,
+      });
     }
   }
 
@@ -207,7 +233,7 @@ export const SupervisorBargeCoachButtons = ({task}: SupervisorBargeCoachProps) =
           <IconButton
             icon={ muted ? 'MuteLargeBold' : 'MuteLarge' }
             disabled={!isLiveCall || !enableBargeinButton || !enableCoachButton || (!barge && !coaching) }
-            onClick={bargeHandleClick}
+            onClick={() => bargeHandleClick(false)}
             title={ muted ? "Unmute" : "Mute" }
             variant="secondary"
             style={{width:'44px',height:'44px'}}
@@ -216,7 +242,7 @@ export const SupervisorBargeCoachButtons = ({task}: SupervisorBargeCoachProps) =
           <IconButton
             icon={ barge ? `IncomingCallBold` :  'IncomingCall' }
             disabled={!isLiveCall || !enableBargeinButton || coaching }
-            onClick={bargeHandleClick}
+            onClick={() => bargeHandleClick(barge ? false : true)}
             title={ barge ? 'Barge-Out' : 'Barge-In' }
             variant={ barge ? 'primary' : 'secondary' }
             style={{width:'44px',height:'44px'}}
