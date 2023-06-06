@@ -1,10 +1,12 @@
 import * as Flex from "@twilio/flex-ui";
+import { ParticipantType } from "@twilio/flex-ui/src/state/Conferences";
 import { Actions as BargeCoachStatusAction } from "../../flex-hooks/states/SupervisorBargeCoach";
 import { isFeatureEnabled, isAgentCoachingPanelEnabled, isSupervisorMonitorPanelEnabled } from '../..';
 import { reduxNamespace } from "../../states";
 import { ErrorManager, FlexErrorSeverity, FlexPluginErrorType } from "../../utils/ErrorManager";
 // Import to get Sync Doc updates
 import { SyncDoc } from "../../utils/sync/Sync";
+import Analytics, { Event } from "../../utils/Analytics";
 
 export const enableBargeCoachButtonsUponMonitor = async (
   flex: typeof Flex,
@@ -42,6 +44,25 @@ export const enableBargeCoachButtonsUponMonitor = async (
       const supervisorFN =
         manager.store.getState().flex?.worker?.attributes?.full_name;
       const conferenceSID = payload.task?.conference?.conferenceSid;
+      const supervisorParticipant =
+      payload.task?.conference?.source?.channelParticipants?.find(
+        (p: any) =>
+          p.type === ("supervisor" as ParticipantType) &&
+          p.mediaProperties.status === "joined" &&
+          myWorkerSID === p.routingProperties.workerSid
+      );
+      const participantSid = supervisorParticipant?.participantSid;
+      let agentParticipant = payload.task?.conference?.participants?.find(
+      (p: any) =>
+        p.participantType === "worker" && agentWorkerSID === p.workerSid
+      );
+      const agentSid = agentParticipant?.callSid;
+
+      Analytics.track(Event.CALL_START_MONITOR, {
+        conferenceSid: conferenceSID,
+        participantSid,
+        agentSid,
+      });
 
       SyncDoc.initSyncDoc(
         agentWorkerSID,
