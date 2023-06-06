@@ -34,7 +34,7 @@ type Parameters = [
   (() => void) | undefined
 ];
 
-enum Method {
+export enum Method {
   PAGE = "page",
   TRACK = "track",
   IDENTIFY = "identify",
@@ -166,7 +166,7 @@ class Analytics {
           method,
           params,
         },
-        "*"
+        window.parent.origin
       );
     }
   }
