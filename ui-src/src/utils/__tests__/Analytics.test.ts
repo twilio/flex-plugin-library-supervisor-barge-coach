@@ -10,7 +10,7 @@ describe("Analytics", () => {
     accountSid: "",
     flexUiVersion: "2.1.1",
     originalPluginName: "plibo-supervisor-barge-and-coach",
-    plugin: "flex-plugin-library-supervisor-barge-coach",
+    plugin: "plibo-supervisor-barge-and-coach",
     pluginVersion: "1.0.0",
     product: "Flex",
     workerSid: "",
