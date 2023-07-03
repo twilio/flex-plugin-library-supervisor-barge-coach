@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event';
-import BargeCoachService from '../../../utils/serverless/BargeCoachService';
 import { SupervisorPrivateToggle } from '../SupervisorPrivateModeButtonComponent';
 
 jest.mock('react-redux', () => ({
