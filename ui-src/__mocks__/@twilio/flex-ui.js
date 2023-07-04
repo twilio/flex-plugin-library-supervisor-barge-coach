@@ -4,7 +4,6 @@ import { EventEmitter } from 'events';
 import { getMockedServiceConfiguration } from '../../test-utils/flex-service-configuration';
 
 // We need to mock anything our plugin uses from @twilio/flex-ui here
-
 class WorkerClient extends EventEmitter {
   eventListeners = {};
   constructor() {
@@ -210,10 +209,6 @@ module.exports = {
   },
   useFlexSelector: jest.fn(() => {
     return 'flex-selector-test-id'
-    // [
-    //   { status: 'recently_left', callSid: 'CSxxxxxx', participantType: 'worker' },
-    //   { status: 'recently_left', callSid: 'CSxxxxxx1', participantType: 'worker' },
-    // ];
   }),
   NotificationBar: {
     Action: () => <React.Fragment></React.Fragment>,
