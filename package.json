@@ -8,14 +8,12 @@
     "build": "cd ui-src && twilio flex:plugins:build && cd .. && npm run makeassetsprivate"
   },
   "dependencies": {
-    "@twilio-labs/serverless-runtime-types": "^1.1",
-    "lodash": "^4.17.21",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "twilio": "^4.0.0",
-    "twilio-flex-token-validator": "^1.5.8",
     "@twilio-labs/runtime-helpers": "^0.1.2",
-    "@twilio-labs/serverless-api": "^5.5.0"
+    "@twilio-labs/serverless-runtime-types": "^2.2.3",
+    "@twilio-labs/serverless-api": "^5.5.0",
+    "twilio-flex-token-validator": "^1.5.8",
+    "lodash": "^4.17.21",
+    "twilio": "^4.0.0"
   },
   "devDependencies": {
     "@babel/preset-env": "7.20.2",
@@ -29,15 +27,16 @@
     "@twilio/flex-ui": "2.1.1",
     "@types/jest": "^26.0.24",
     "@types/lodash": "4.14.182",
-    "react-test-renderer": "17.0.2",
     "jest": "^26.0.20",
     "jest-fetch-mock": "3.0.3",
     "jest-junit": "12.0.0",
     "twilio": "4.0.0",
     "twilio-cli": "5.2.1",
-    "twilio-run": "3.4.2"
+    "twilio-run": "3.4.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "engines": {
-    "node": "14"
+    "node": "16"
   }
 }

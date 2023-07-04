@@ -3,6 +3,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event';
 import { SupervisorBargeCoachButtons } from '../SupervisorBargeCoachButtonComponent';
+import BargeCoachService from "../../../utils/serverless/BargeCoachService";
 
 jest.mock('../../../utils/serverless/BargeCoachService');
 jest.mock('react-redux', () => ({
@@ -131,6 +132,7 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     expect(consoleSpy).toHaveBeenCalledWith('conferenceSid = null, returning');
   });
   it('call bargeHandleClick successfully', async () => {
+    const updateParticipantBargeCoachSpy = jest.spyOn(BargeCoachService, 'updateParticipantBargeCoach');
     const mockTask = {
       conference: {
         conferenceSid: "CFxxxxxx",
@@ -161,15 +163,16 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
     await userEvent.click(bargeBtn);
-    //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
+    expect(updateParticipantBargeCoachSpy).toHaveBeenCalled();
   });
+
   it('call bargeHandleClick error due to mismatching workerSID', async () => {
     const mockErrorTask = {
       conference: {
         conferenceSid: "CFxxxxxx",
         participants: [{
           participantType: 'worker',
-          workerSid: 'WKxxx',
+          workerSid: 'WKxxxx',
           callSid: 'CAxxxx'
         }],
         source: {

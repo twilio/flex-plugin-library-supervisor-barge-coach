@@ -1,9 +1,5 @@
 module.exports = {
-    // testEnvironment: 'node',
     rootDir: '.',
-    //   transform: {
-    //     '^.+\\.(t|j)sx?$': 'ts-jest',
-    //   },
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     modulePathIgnorePatterns: ['<rootDir>/dist'],
@@ -14,8 +10,6 @@ module.exports = {
     coveragePathIgnorePatterns: [
       '.*\\.d\\.ts',
       '/components/.*./index\\.ts',
-      'polyfilled\\.ts',
-      'createAction.ts',
       'jest.config.js',
       'webpack.*\\.js',
       './coverage',
@@ -23,19 +17,17 @@ module.exports = {
       '/test-utils',
       '/types',
       '/strings',
-      '/ui-src/build',
-      '/ui-src/src/SupervisorBargeCoachPlugin.tsx',
-      '/ui-src/src/index.ts',
       '/utils',
-      '/assets',
-      '/functions/setup.js'
+      '/build',
+      'assets',
+      '/functions/setup.js',
+      '/redux'
     ],
     coverageReporters: ['json', 'lcov', 'text', 'clover', 'cobertura'],
     testResultsProcessor: 'jest-junit',
     reporters: ['default', 'jest-junit'],
-    // restoreMocks: true,
     clearMocks: true,
     automock: false,
-    //   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
+    testTimeout: 15000
   };
   
