@@ -13,11 +13,13 @@
     "@twilio-paste/core": "^17.2.0",
     "@twilio-paste/icons": "^9.4.2",
     "@twilio/flex-dev-utils": "^5.1.3",
-    "@twilio/flex-plugin-scripts": "^6.1.2",
+    "@twilio/flex-plugin-scripts": "6.0.3",
     "lodash": "^4.17.20",
     "prop-types": "^15.7.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-select": "^5.5.0",
+    "ts-jest": "26.5.6"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.1",
