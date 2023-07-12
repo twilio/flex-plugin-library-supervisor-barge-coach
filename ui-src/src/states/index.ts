@@ -1,9 +1,9 @@
-import * as Flex from "@twilio/flex-ui";
-import { combineReducers, Action as ReduxAction } from "redux";
-import { CustomState, customReducers } from "./states";
+import * as Flex from '@twilio/flex-ui';
+import { combineReducers, Action as ReduxAction } from 'redux';
+import { CustomState, customReducers } from './states';
 
 // Register your redux store under a unique namespace
-export const reduxNamespace = "custom";
+export const reduxNamespace = 'custom';
 
 // Extend this payload to be of type that your ReduxAction is
 // Normally you'd follow this pattern...https://redux.js.org/recipes/usage-with-typescript#a-practical-example

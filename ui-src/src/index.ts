@@ -10,7 +10,7 @@ export const isAgentCoachingPanelEnabled = () => {
 };
 
 export const isSupervisorMonitorPanelEnabled = () => {
-  console.log('supervisor panel enabled')
+  console.log('supervisor panel enabled');
   return true;
 };
 

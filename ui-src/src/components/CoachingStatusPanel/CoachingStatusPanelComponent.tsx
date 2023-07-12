@@ -1,25 +1,27 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-const */
+/* eslint-disable no-empty-pattern */
+/* eslint-disable @typescript-eslint/ban-types */
 import React from 'react';
 import { useFlexSelector } from '@twilio/flex-ui';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState, reduxNamespace } from '../../states'
-import { Actions } from "../../flex-hooks/states/SupervisorBargeCoach"
-import { Flex, Stack, Box, Text } from "@twilio-paste/core";
+import { AppState, reduxNamespace } from '../../states';
+import { Actions } from '../../flex-hooks/states/SupervisorBargeCoach';
+import { Flex, Stack, Box, Text } from '@twilio-paste/core';
 
 // Import to get Sync Doc updates
-import { SyncDoc } from '../../utils/sync/Sync'
+import { SyncDoc } from '../../utils/sync/Sync';
 
-type CoachingStatusPanelProps = {
-}
+type CoachingStatusPanelProps = {};
 
-export const CoachingStatusPanel = ({ }: CoachingStatusPanelProps) => {
+export const CoachingStatusPanel = ({}: CoachingStatusPanelProps) => {
   const dispatch = useDispatch();
 
-  let {
-    supervisorArray,
-    syncSubscribed
-  } = useSelector((state: AppState) => state[reduxNamespace].supervisorBargeCoach);
+  let { supervisorArray, syncSubscribed } = useSelector(
+    (state: AppState) => state[reduxNamespace].supervisorBargeCoach,
+  );
 
-  const myWorkerSID = useFlexSelector(state => state?.flex?.worker?.worker?.sid);
+  const myWorkerSID = useFlexSelector((state) => state?.flex?.worker?.worker?.sid);
 
   const syncUpdates = () => {
     if (syncSubscribed != true) {
@@ -28,38 +30,40 @@ export const CoachingStatusPanel = ({ }: CoachingStatusPanelProps) => {
       // otherwise leave it blank
       const mySyncDoc = `syncDoc.${myWorkerSID}`;
 
-      SyncDoc.getSyncDoc(mySyncDoc)
-        .then(doc => {
-          // We are subscribing to Sync Doc updates here and logging anytime that happens
-          doc.on("updated", (updatedDoc: string) => {
-            if (doc.data.supervisors != null) {
-              supervisorArray = [...doc.data.supervisors];
-              // Current verion of this feature will only show the Agent they are being coached
-              // This could be updated by removing the below logic and including Monitoring and Joined (barged)
-              for (let i = 0; i < supervisorArray.length; i++) {
-
-                if (supervisorArray[i].status == "is Monitoring" || supervisorArray[i].status == "has Joined") {
-                  supervisorArray.splice(i, 1);
-                  i--;
-                }
+      SyncDoc.getSyncDoc(mySyncDoc).then((doc) => {
+        // We are subscribing to Sync Doc updates here and logging anytime that happens
+        doc.on('updated', (updatedDoc: string) => {
+          if (doc.data.supervisors != null) {
+            supervisorArray = [...doc.data.supervisors];
+            // Current verion of this feature will only show the Agent they are being coached
+            // This could be updated by removing the below logic and including Monitoring and Joined (barged)
+            for (let i = 0; i < supervisorArray.length; i++) {
+              if (supervisorArray[i].status == 'is Monitoring' || supervisorArray[i].status == 'has Joined') {
+                supervisorArray.splice(i, 1);
+                i--;
               }
-            } else {
-              supervisorArray = [];
             }
+          } else {
+            supervisorArray = [];
+          }
 
-            // Set Supervisor's name that is coaching into props
-            dispatch(Actions.setBargeCoachStatus({
-              supervisorArray: supervisorArray
-            }));
-          })
+          // Set Supervisor's name that is coaching into props
+          dispatch(
+            Actions.setBargeCoachStatus({
+              supervisorArray: supervisorArray,
+            }),
+          );
         });
-      dispatch(Actions.setBargeCoachStatus({
-        syncSubscribed: true,
-      }));
+      });
+      dispatch(
+        Actions.setBargeCoachStatus({
+          syncSubscribed: true,
+        }),
+      );
     }
 
     return;
-  }
+  };
 
   syncUpdates();
 
@@ -67,7 +71,6 @@ export const CoachingStatusPanel = ({ }: CoachingStatusPanelProps) => {
   // We will map each of the supervisors that may be actively coaching
   // Otherwise we will not display anything if no one is actively coaching
   if (supervisorArray.length != 0) {
-
     return (
       <>
         <Flex hAlignContent="center" vertical>
@@ -97,8 +100,6 @@ export const CoachingStatusPanel = ({ }: CoachingStatusPanelProps) => {
       </>
     );
   } else {
-    return (
-      <></>
-    );
+    return <></>;
   }
-}
+};

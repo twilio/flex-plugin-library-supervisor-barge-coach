@@ -1,47 +1,45 @@
-import Analytics, { Method } from "../Analytics";
+import Analytics, { Method } from '../Analytics';
 
-jest.mock("@twilio/flex-ui", () => ({
+jest.mock('@twilio/flex-ui', () => ({
   __esModule: true,
-  VERSION: "2.1.1",
+  VERSION: '2.1.1',
 }));
 
-describe("Analytics", () => {
+describe('Analytics', () => {
   const mockCommonProperties = {
-    accountSid: "",
-    flexUiVersion: "2.1.1",
-    originalPluginName: "plibo-supervisor-barge-and-coach",
-    plugin: "plibo-supervisor-barge-and-coach",
-    pluginVersion: "1.0.0",
-    product: "Flex",
-    workerSid: "",
+    accountSid: '',
+    flexUiVersion: '2.1.1',
+    originalPluginName: 'plibo-supervisor-barge-and-coach',
+    plugin: 'plibo-supervisor-barge-and-coach',
+    pluginVersion: '1.0.0',
+    product: 'Flex',
+    workerSid: '',
   };
   const mockedPageProperties = {
-    path: "/",
-    referrer: "",
-    search: "",
-    title: "Twilio Flex",
-    url: "http://flex-test.twilio.com",
+    path: '/',
+    referrer: '',
+    search: '',
+    title: 'Twilio Flex',
+    url: 'http://flex-test.twilio.com',
   };
-  const mockEvent = "Test Event";
+  const mockEvent = 'Test Event';
   const mockEventProperties = {
-    foo: "bar",
+    foo: 'bar',
   };
   const postMessageFn = jest.fn();
   const callbackFn = jest.fn();
 
-  jest.spyOn(document, "querySelector").mockReturnValue({
-    ...document.createElement("iframe"),
+  jest.spyOn(document, 'querySelector').mockReturnValue({
+    ...document.createElement('iframe'),
     contentWindow: {
       postMessage: postMessageFn,
     },
   } as Element);
-  const pagePropsSpy = jest
-    .spyOn(Analytics as any, "_pageProperties", "get")
-    .mockReturnValue(mockedPageProperties);
-  const segmentSpy = jest.spyOn(Analytics as any, "segment", "get");
-  const postSpy = jest.spyOn(Analytics as any, "_post");
+  const pagePropsSpy = jest.spyOn(Analytics as any, '_pageProperties', 'get').mockReturnValue(mockedPageProperties);
+  const segmentSpy = jest.spyOn(Analytics as any, 'segment', 'get');
+  const postSpy = jest.spyOn(Analytics as any, '_post');
 
-  it("should post event if analytics iframe exists", () => {
+  it('should post event if analytics iframe exists', () => {
     Analytics.track(mockEvent, mockEventProperties);
     expect(pagePropsSpy).toBeCalled();
     expect(segmentSpy).toBeCalled();
@@ -49,14 +47,14 @@ describe("Analytics", () => {
     expect(postMessageFn).toBeCalled();
   });
 
-  it("should not post event if analytics iframe does not exist", () => {
+  it('should not post event if analytics iframe does not exist', () => {
     segmentSpy.mockReturnValueOnce(null);
     Analytics.track(mockEvent, mockEventProperties);
     expect(postSpy).toBeCalled();
     expect(postMessageFn).toBeCalledTimes(0);
   });
 
-  it("should post track event when Analytics.track is called", () => {
+  it('should post track event when Analytics.track is called', () => {
     Analytics.track(mockEvent, mockEventProperties, callbackFn);
     expect(postSpy).toBeCalledWith(
       Method.TRACK,
@@ -71,11 +69,11 @@ describe("Analytics", () => {
           page: { ...mockedPageProperties },
         },
       },
-      callbackFn
+      callbackFn,
     );
   });
 
-  it("should post page event when Analytics.track is called", () => {
+  it('should post page event when Analytics.track is called', () => {
     Analytics.page(mockEvent, mockEventProperties, callbackFn);
     expect(postSpy).toBeCalledWith(
       Method.PAGE,
@@ -90,11 +88,11 @@ describe("Analytics", () => {
           groupId: mockCommonProperties.accountSid,
         },
       },
-      callbackFn
+      callbackFn,
     );
   });
 
-  it("should post identify event when Analytics.track is called", () => {
+  it('should post identify event when Analytics.track is called', () => {
     Analytics.identify(mockEventProperties);
     expect(postSpy).toBeCalledWith(
       Method.IDENTIFY,
@@ -109,15 +107,15 @@ describe("Analytics", () => {
           page: { ...mockedPageProperties },
         },
       },
-      undefined
+      undefined,
     );
   });
 
-  it("should post group event when Analytics.track is called", () => {
-    Analytics.group("123", mockEventProperties, callbackFn);
+  it('should post group event when Analytics.track is called', () => {
+    Analytics.group('123', mockEventProperties, callbackFn);
     expect(postSpy).toBeCalledWith(
       Method.GROUP,
-      "123",
+      '123',
       {
         ...mockCommonProperties,
         ...mockEventProperties,
@@ -127,7 +125,7 @@ describe("Analytics", () => {
           page: { ...mockedPageProperties },
         },
       },
-      callbackFn
+      callbackFn,
     );
   });
 });
