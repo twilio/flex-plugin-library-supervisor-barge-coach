@@ -1,10 +1,6 @@
 import * as Flex from '@twilio/flex-ui';
 import { EncodedParams } from '../../types/serverless';
-import {
-  ErrorManager,
-  FlexErrorSeverity,
-  FlexPluginErrorType,
-} from '../../utils/ErrorManager';
+import { ErrorManager, FlexErrorSeverity, FlexPluginErrorType } from '../../utils/ErrorManager';
 import { random } from 'lodash';
 
 function delay<T>(ms: number, result?: T) {
@@ -20,24 +16,16 @@ export default abstract class ApiService {
 
     try {
       this.serverlessDomain =
-        process.env.FLEX_APP_SERVERLESS_FUNCTONS_DOMAIN ||
-        '<FLEX_APP_SERVERLESS_FUNCTONS_DOMAIN>';
+        process.env.FLEX_APP_SERVERLESS_FUNCTONS_DOMAIN || '<FLEX_APP_SERVERLESS_FUNCTONS_DOMAIN>';
 
-      if (!this.serverlessDomain)
-        throw Error('FLEX_APP_SERVERLESS_FUNCTONS_DOMAIN is not set');
+      if (!this.serverlessDomain) throw Error('FLEX_APP_SERVERLESS_FUNCTONS_DOMAIN is not set');
     } catch (e) {
-      ErrorManager.createAndProcessError(
-        'Could not set serverless function domain',
-        {
-          type: FlexPluginErrorType.serverless,
-          description:
-            e instanceof Error
-              ? `${e.message}`
-              : 'Could not set serverless function domain',
-          context: 'Plugin.ApiService',
-          wrappedError: e,
-        }
-      );
+      ErrorManager.createAndProcessError('Could not set serverless function domain', {
+        type: FlexPluginErrorType.serverless,
+        description: e instanceof Error ? `${e.message}` : 'Could not set serverless function domain',
+        context: 'Plugin.ApiService',
+        wrappedError: e,
+      });
     }
   }
 
@@ -53,11 +41,7 @@ export default abstract class ApiService {
     }, '');
   }
 
-  protected fetchJsonWithReject<T>(
-    url: string,
-    config: RequestInit,
-    attempts = 0
-  ): Promise<T> {
+  protected fetchJsonWithReject<T>(url: string, config: RequestInit, attempts = 0): Promise<T> {
     return fetch(url, config)
       .then((response) => {
         if (!response.ok) {

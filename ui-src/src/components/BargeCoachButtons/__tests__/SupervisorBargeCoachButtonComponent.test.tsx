@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { SupervisorBargeCoachButtons } from '../SupervisorBargeCoachButtonComponent';
-import BargeCoachService from "../../../utils/serverless/BargeCoachService";
+import BargeCoachService from '../../../utils/serverless/BargeCoachService';
 
 jest.mock('../../../utils/serverless/BargeCoachService');
 jest.mock('react-redux', () => ({
@@ -13,72 +13,72 @@ jest.mock('react-redux', () => ({
     enableBargeinButton: true,
     coaching: true,
     enableCoachButton: true,
-    privateMode: false
+    privateMode: false,
   }),
-  useDispatch: () => jest.fn()
+  useDispatch: () => jest.fn(),
 }));
 jest.mock('../../..', () => ({
-  isAgentCoachingPanelEnabled: jest.fn().mockReturnValue(true)
-}))
+  isAgentCoachingPanelEnabled: jest.fn().mockReturnValue(true),
+}));
 describe('SupervisorBargeCoachButtons component enable to disable', () => {
   it('renders correctly', () => {
     const mockTask = {
       conference: {
-        conferenceSid: "CFxxxxxx",
-        participants: [{
-          participantType: 'worker',
-          workerSid: 'flex-selector-test-id',
-          callSid: 'CAxxxx'
-        }],
+        conferenceSid: 'CFxxxxxx',
+        participants: [
+          {
+            participantType: 'worker',
+            workerSid: 'flex-selector-test-id',
+            callSid: 'CAxxxx',
+          },
+        ],
         source: {
           channelParticipants: [
             {
               participantSid: 'PAxxxx',
               type: 'supervisor',
               mediaProperties: {
-                status: 'joined'
+                status: 'joined',
               },
               routingProperties: {
-                workerSid: 'flex-selector-test-id'
-              }
-            }
-          ]
-        }
-      }
-    }
-    const wrapper = render(
-      <SupervisorBargeCoachButtons key="callback-component" task={mockTask} />
-    )
+                workerSid: 'flex-selector-test-id',
+              },
+            },
+          ],
+        },
+      },
+    };
+    const wrapper = render(<SupervisorBargeCoachButtons key="callback-component" task={mockTask} />);
     expect(wrapper).toMatchSnapshot();
   });
   it('call coachHandleClick successfully', async () => {
     const mockTask = {
       conference: {
-        conferenceSid: "CFxxxxxx",
-        participants: [{
-          participantType: 'worker',
-          workerSid: 'flex-selector-test-id',
-          callSid: 'CAxxxx'
-        }],
+        conferenceSid: 'CFxxxxxx',
+        participants: [
+          {
+            participantType: 'worker',
+            workerSid: 'flex-selector-test-id',
+            callSid: 'CAxxxx',
+          },
+        ],
         source: {
           channelParticipants: [
             {
               participantSid: 'PAxxxx',
               type: 'supervisor',
               mediaProperties: {
-                status: 'joined'
+                status: 'joined',
               },
               routingProperties: {
-                workerSid: 'flex-selector-test-id'
-              }
-            }
-          ]
-        }
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockTask} />
-    )
+                workerSid: 'flex-selector-test-id',
+              },
+            },
+          ],
+        },
+      },
+    };
+    const { getByTestId } = render(<SupervisorBargeCoachButtons task={mockTask} />);
     const coachBtn = getByTestId('coachBtn');
     expect(coachBtn).toBeEnabled();
     await userEvent.click(coachBtn);
@@ -87,31 +87,31 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
   it('call coachHandleClick error due to mismatching workerSID', async () => {
     const mockErrorTask = {
       conference: {
-        conferenceSid: "CFxxxxxx",
-        participants: [{
-          participantType: 'worker',
-          workerSid: 'WKxxx',
-          callSid: 'CAxxxx'
-        }],
+        conferenceSid: 'CFxxxxxx',
+        participants: [
+          {
+            participantType: 'worker',
+            workerSid: 'WKxxx',
+            callSid: 'CAxxxx',
+          },
+        ],
         source: {
           channelParticipants: [
             {
               participantSid: 'PAxxxx',
               type: 'supervisor',
               mediaProperties: {
-                status: 'joined'
+                status: 'joined',
               },
               routingProperties: {
-                workerSid: 'WKxxx'
-              }
-            }
-          ]
-        }
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockErrorTask} />
-    )
+                workerSid: 'WKxxx',
+              },
+            },
+          ],
+        },
+      },
+    };
+    const { getByTestId } = render(<SupervisorBargeCoachButtons task={mockErrorTask} />);
     const coachBtn = getByTestId('coachBtn');
     expect(coachBtn).toBeEnabled();
     await userEvent.click(coachBtn);
@@ -120,12 +120,9 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
   it('call coachHandleClick error due to no conferenceSID', async () => {
     const consoleSpy = jest.spyOn(console, 'log');
     const mockErrorTask = {
-      conference: {
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockErrorTask} />
-    )
+      conference: {},
+    };
+    const { getByTestId } = render(<SupervisorBargeCoachButtons task={mockErrorTask} />);
     const coachBtn = getByTestId('coachBtn');
     expect(coachBtn).toBeEnabled();
     await userEvent.click(coachBtn);
@@ -135,31 +132,31 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
     const updateParticipantBargeCoachSpy = jest.spyOn(BargeCoachService, 'updateParticipantBargeCoach');
     const mockTask = {
       conference: {
-        conferenceSid: "CFxxxxxx",
-        participants: [{
-          participantType: 'worker',
-          workerSid: 'flex-selector-test-id',
-          callSid: 'CAxxxx'
-        }],
+        conferenceSid: 'CFxxxxxx',
+        participants: [
+          {
+            participantType: 'worker',
+            workerSid: 'flex-selector-test-id',
+            callSid: 'CAxxxx',
+          },
+        ],
         source: {
           channelParticipants: [
             {
               participantSid: 'PAxxxx',
               type: 'supervisor',
               mediaProperties: {
-                status: 'joined'
+                status: 'joined',
               },
               routingProperties: {
-                workerSid: 'flex-selector-test-id'
-              }
-            }
-          ]
-        }
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockTask} />
-    )
+                workerSid: 'flex-selector-test-id',
+              },
+            },
+          ],
+        },
+      },
+    };
+    const { getByTestId } = render(<SupervisorBargeCoachButtons task={mockTask} />);
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
     await userEvent.click(bargeBtn);
@@ -169,31 +166,31 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
   it('call bargeHandleClick error due to mismatching workerSID', async () => {
     const mockErrorTask = {
       conference: {
-        conferenceSid: "CFxxxxxx",
-        participants: [{
-          participantType: 'worker',
-          workerSid: 'WKxxxx',
-          callSid: 'CAxxxx'
-        }],
+        conferenceSid: 'CFxxxxxx',
+        participants: [
+          {
+            participantType: 'worker',
+            workerSid: 'WKxxxx',
+            callSid: 'CAxxxx',
+          },
+        ],
         source: {
           channelParticipants: [
             {
               participantSid: 'PAxxxx',
               type: 'supervisor',
               mediaProperties: {
-                status: 'joined'
+                status: 'joined',
               },
               routingProperties: {
-                workerSid: 'WKxxx'
-              }
-            }
-          ]
-        }
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockErrorTask} />
-    )
+                workerSid: 'WKxxx',
+              },
+            },
+          ],
+        },
+      },
+    };
+    const { getByTestId } = render(<SupervisorBargeCoachButtons task={mockErrorTask} />);
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
     await userEvent.click(bargeBtn);
@@ -202,16 +199,12 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
   it('call bargeHandleClick error due to no conferenceSID', async () => {
     const consoleSpy = jest.spyOn(console, 'log');
     const mockErrorTask = {
-      conference: {
-      }
-    }
-    const { getByTestId } = render(
-      <SupervisorBargeCoachButtons task={mockErrorTask} />
-    )
+      conference: {},
+    };
+    const { getByTestId } = render(<SupervisorBargeCoachButtons task={mockErrorTask} />);
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
     await userEvent.click(bargeBtn);
     expect(consoleSpy).toHaveBeenCalledWith('conferenceSid = null, returning');
   });
-})
-
+});

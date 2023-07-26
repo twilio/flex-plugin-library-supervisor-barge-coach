@@ -1,7 +1,7 @@
 import * as Flex from '@twilio/flex-ui';
 import React from 'react';
 import { FlexPlugin } from '@twilio/flex-plugin';
-import AddReducer from './flex-hooks/redux'
+import AddReducer from './flex-hooks/redux';
 import { enableBargeCoachButtonsUponMonitor } from './flex-hooks/actions/MonitorCall';
 import { cleanStateAndSyncUponAgentHangUp } from './flex-hooks/actions/reservation';
 import { addSupervisorCoachingPanelToAgent } from './flex-hooks/components/CallCanvas';
@@ -25,14 +25,13 @@ export default class SupervisorBargeCoachPlugin extends FlexPlugin {
    */
   init(flex: typeof Flex, manager: Flex.Manager) {
     const initializers = [
-        AddReducer,
-        enableBargeCoachButtonsUponMonitor,
-        cleanStateAndSyncUponAgentHangUp,
-        addSupervisorCoachingPanelToAgent,
-        addSupervisorMonitorPanel,
-        addSupervisorBargeCoachButtons,
-        SyncClient,
-      
+      AddReducer,
+      enableBargeCoachButtonsUponMonitor,
+      cleanStateAndSyncUponAgentHangUp,
+      addSupervisorCoachingPanelToAgent,
+      addSupervisorMonitorPanel,
+      addSupervisorBargeCoachButtons,
+      SyncClient,
     ];
 
     initializers.forEach((initializer) => initializer(flex, manager));
