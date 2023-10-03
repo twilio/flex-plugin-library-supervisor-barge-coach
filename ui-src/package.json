@@ -14,6 +14,7 @@
     "@twilio-paste/icons": "^9.4.2",
     "@twilio/flex-dev-utils": "^5.1.3",
     "@twilio/flex-plugin-scripts": "6.0.3",
+    "@twilio/flex-ui-telemetry": "^1.2.0",
     "lodash": "^4.17.20",
     "prop-types": "^15.7.2",
     "react": "17.0.2",

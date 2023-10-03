@@ -6,7 +6,7 @@ import { reduxNamespace } from '../../states';
 import { ErrorManager, FlexErrorSeverity, FlexPluginErrorType } from '../../utils/ErrorManager';
 // Import to get Sync Doc updates
 import { SyncDoc } from '../../utils/sync/Sync';
-import Analytics, { Event } from '../../utils/Analytics';
+import { Analytics, Event } from '../../utils/Analytics';
 
 export const enableBargeCoachButtonsUponMonitor = async (flex: typeof Flex, manager: any) => {
   try {
