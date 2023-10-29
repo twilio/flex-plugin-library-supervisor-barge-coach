@@ -17,6 +17,7 @@
     "@twilio-labs/serverless-api": "^5.5.0",
     "@twilio/flex-plugins-library-utils": "1.0.0",
     "twilio-flex-token-validator": "^1.5.8",
+    "@twilio/flex-ui-telemetry": "^1.2.0",
     "lodash": "^4.17.21",
     "twilio": "^4.0.0"
   },
