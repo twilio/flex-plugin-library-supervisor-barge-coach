@@ -15,6 +15,7 @@
     "@twilio-labs/runtime-helpers": "^0.1.2",
     "@twilio-labs/serverless-runtime-types": "^2.2.3",
     "@twilio-labs/serverless-api": "^5.5.0",
+    "@twilio/flex-plugins-library-utils": "1.0.0",
     "twilio-flex-token-validator": "^1.5.8",
     "lodash": "^4.17.21",
     "twilio": "^4.0.0"
