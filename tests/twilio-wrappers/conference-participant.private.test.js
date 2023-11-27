@@ -165,8 +165,8 @@ describe('updateParticipant test from ConferenceParticipant', () => {
     });
     const { updateParticipant } = require('../../functions/twilio-wrappers/conference-participant.private');
     const parameters = {
-      conference: taskSid,
-      participant: participantSid,
+      conferenceSid: taskSid,
+      participantSid: participantSid,
       endConferenceOnExit: true,
     };
     const context = {
