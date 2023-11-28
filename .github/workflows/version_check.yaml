@@ -4,38 +4,55 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - 'ui-src/**'
-      - 'functions/**'
 
 jobs:
   versionCheck:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
+      - name: Check changed files
+        uses: dorny/paths-filter@v2
+        id: changedFiles
+        with:
+          filters: |
+            files:
+              - 'ui-src/**'
+              - 'functions/**'
+
+      - name: Skip version check
+        if: steps.changedFiles.outputs.files == 'false'
+        run: |
+          echo "Package version check is not required for these changes. Passing status check"
+
+      - if: steps.changedFiles.outputs.files == 'true'
+        uses: actions/checkout@v3
+
       - name: Get package json of current branch
+        if: steps.changedFiles.outputs.files == 'true'
         id: branchPackageJson
         run: |
           echo "branchPackageJson=$(cat package.json | tr -d "\n")" >> $GITHUB_OUTPUT
 
-      - uses: actions/checkout@v3
+      - if: steps.changedFiles.outputs.files == 'true'
+        uses: actions/checkout@v3
         with:
           ref: main
       - name: Get package json of main
+        if: steps.changedFiles.outputs.files == 'true'
         id: mainPackageJson
         run: |
           echo "mainPackageJson=$(cat package.json | tr -d "\n")" >> $GITHUB_OUTPUT
 
       - name: Find versions
+        if: steps.changedFiles.outputs.files == 'true'
         id: versions
         run: |
           echo "branchPackageVersion=${{ fromJson(steps.branchPackageJson.outputs.branchPackageJson).version }}" >> $GITHUB_OUTPUT
           echo "mainPackageVersion=${{ fromJson(steps.mainPackageJson.outputs.mainPackageJson).version }}" >> $GITHUB_OUTPUT
 
       - name: Package version needs to be updated
-        if: ${{ steps.versions.outputs.branchPackageVersion == steps.versions.outputs.mainPackageVersion}}
+        if: ${{ steps.changedFiles.outputs.files == 'true' && steps.versions.outputs.branchPackageVersion == steps.versions.outputs.mainPackageVersion}}
         run: exit 1
 
       - name: Package version is Updated
+        if: steps.changedFiles.outputs.files == 'true'
         run: echo "All Good"

@@ -10,7 +10,7 @@ import { isAgentCoachingPanelEnabled } from '../..';
 
 // Used for Sync Docs
 import { SyncDoc } from '../../utils/sync/Sync';
-import Analytics, { Event } from '../../utils/Analytics';
+import { Analytics, Event } from '../../utils/Analytics';
 
 type SupervisorBargeCoachProps = {
   task: ITask;
