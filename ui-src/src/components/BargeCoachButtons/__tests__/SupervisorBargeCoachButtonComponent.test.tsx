@@ -199,7 +199,6 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
   it('call bargeHandleClick error due to no conferenceSID', async () => {
     const consoleSpy = jest.spyOn(console, 'log');
     const mockErrorTask = {
-      conference: {},
     };
     const { getByTestId } = render(<SupervisorBargeCoachButtons task={mockErrorTask} />);
     const bargeBtn = getByTestId('bargeBtn');
