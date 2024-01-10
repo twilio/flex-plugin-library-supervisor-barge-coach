@@ -190,21 +190,16 @@ describe('SupervisorBargeCoachButtons component enable to disable', () => {
         },
       },
     };
-    console.log('call bargeHandleClick error due to mismatching workerSID Error 1')
     const { getByTestId } = render(<SupervisorBargeCoachButtons task={mockErrorTask} />);
-    console.log('call bargeHandleClick error due to mismatching workerSID Error 2')
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
     await userEvent.click(bargeBtn);
     //expect(CallbackService.callCustomerBack).toHaveBeenCalled();
   });
   it('call bargeHandleClick error due to no conferenceSID', async () => {
-    console.log('call bargeHandleClick error due to no conferenceSID Error 1')
     const consoleSpy = jest.spyOn(console, 'log');
-    console.log('call bargeHandleClick error due to no conferenceSID Error 2')
     const mockErrorTask = {};
     const { getByTestId } = render(<SupervisorBargeCoachButtons task={mockErrorTask} />);
-    console.log('call bargeHandleClick error due to no conferenceSID Error 3')
     const bargeBtn = getByTestId('bargeBtn');
     expect(bargeBtn).toBeEnabled();
     await userEvent.click(bargeBtn);
