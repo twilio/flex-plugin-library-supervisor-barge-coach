@@ -1,3 +1,7 @@
+## version 1.0.2
+
+- Added bug fixes for barge and coach options.
+
 ## version 1.0.1
 
 - Introduced the usage of flex-ui-telemetry package instead of individual classes.

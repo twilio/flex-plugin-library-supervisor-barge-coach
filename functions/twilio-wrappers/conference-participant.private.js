@@ -21,8 +21,8 @@ exports.coachToggle = async function coachToggle(parameters) {
     conferenceSid,
     participantSid,
     agentSid,
-    muted,
-    coaching,
+    muted : muted === 'true',
+    coaching : coaching === 'true',
   };
 
   const client = context.getTwilioClient();
@@ -53,7 +53,7 @@ exports.bargeToggle = async function bargeToggle(parameters) {
     attempts: attempts || 3,
     conferenceSid,
     participantSid,
-    muted,
+    muted : muted === 'true',
   };
 
   const client = context.getTwilioClient();
