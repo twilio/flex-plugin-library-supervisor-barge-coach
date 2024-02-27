@@ -19,8 +19,9 @@ export function addSupervisorBargeCoachButtons(flex: typeof Flex, manager: Flex.
     // We need to invoke an action to trigger this again, so it populates the stickyWorker for us
     const agentWorkerSID = manager.store.getState().flex?.supervisor?.stickyWorker?.worker?.sid;
     const teamViewTaskSID = localStorage.getItem('teamViewTaskSID');
+    const intendedRoute = window.document.location.pathname;
     // Check that the stickyWorker is null and that we are attempting to restore the last worker they monitored
-    if (agentWorkerSID == null && teamViewTaskSID != null) {
+    if (agentWorkerSID == null && teamViewTaskSID != null && intendedRoute.includes('/teams/')) {
       console.log(`teamViewSID = ${teamViewTaskSID}`);
 
       // Invoke action to trigger the monitor button so we can populate the stickyWorker attribute
